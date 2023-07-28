@@ -1,13 +1,23 @@
 import mongoose from 'mongoose';
 
 const postSchema = new mongoose.Schema({
+  Id: {
+    type: Number,
+    required: true,
+    unique: true,
+    primaryKey: true,
+    },
+    UserId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref:'User'
+    },
   title: {
     type: String,
-    required: true,
+ 
   },
   content: {
     type: String,
-    required: true,
+ 
   },
   createdAt: {
     type: Date,
