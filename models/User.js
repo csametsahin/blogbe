@@ -1,6 +1,6 @@
 // models/User.js
 import { Sequelize, Model, DataTypes } from 'sequelize';
-import db from '../config/database';
+import  db from '../config/database.js'; 
 
 
 class User extends Model {}
@@ -21,4 +21,4 @@ User.init(
   }
 );
 
-module.exports = User;
+export default User

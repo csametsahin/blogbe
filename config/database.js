@@ -1,7 +1,7 @@
 import { Sequelize }  from 'sequelize';
 
 // Veritabanı bağlantısı için gerekli bilgileri ayarlayın
-const sequelize = new Sequelize('database_name', 'username', 'password', {
+const sequelize = new Sequelize('blog', 'postgres', 'admin', {
   host: 'localhost', // Veritabanı sunucusu adresi
   dialect: 'postgres', // Kullanılan veritabanı türü (örneğin, 'mysql', 'postgres', 'sqlite', 'mssql' vb.)
   port: 5432, // Veritabanı sunucusu portu
@@ -19,4 +19,4 @@ sequelize
   });
 
 // Model ve tablo oluşturmak için Sequelize nesnesini export ediyoruz
-module.exports = sequelize;
+export default sequelize;

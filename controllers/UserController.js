@@ -1,4 +1,4 @@
-import { User } from '../models/User';
+import  User  from '../models/User.js';
 
 // Kullanıcıları çekmek için bir controller fonksiyonu
 const getAllUsers = async (req, res) => {
@@ -16,4 +16,4 @@ const getAllUsers = async (req, res) => {
 
 // Diğer controller fonksiyonlarını eklemeyi unutmayın
 
-module.exports = { getAllUsers };
+export { getAllUsers };

@@ -1,12 +1,23 @@
-// index.js dosyası
-import pkg from 'express';
-const app = pkg();
-const port = 3000; // veya tercih ettiğiniz başka bir port
+import express from 'express';
+import  db from './config/database.js'; // Veritabanı bağlantısı için dosyayı import ediyoruz
+import  userRoutes from './routes/userRoutes.js' // users route dosyasını import ediyoruz
+const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Merhaba Dünya!'); // Tarayıcıda "Merhaba Dünya!" yazacak
-});
+// Diğer yapılandırmalar ve middleware'leri ekleyin
 
-app.listen(port, () => {
-  console.log(`Sunucu http://localhost:${port} adresinde çalışıyor.`);
-});
+// Veritabanı bağlantısını gerçekleştiriyoruz
+db.authenticate()
+  .then(() => {
+    console.log('Veritabanına başarıyla bağlandı');
+  })
+  .catch((err) => {
+    console.error('Veritabanı bağlantı hatası:', err);
+  });
+
+// Route dosyalarını kullanmak için middleware olarak ekliyoruz
+app.use('/users', userRoutes);
+
+// Diğer route dosyalarını ve middleware'leri ekleyebilirsiniz
+
+// Sunucuyu başlatıyoruz
+app.listen(3000, () => console.log('Sunucu çalışıyor...'));
