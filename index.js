@@ -1,10 +1,12 @@
 import express from 'express';
 import  db from './config/database.js'; // Veritabanı bağlantısı için dosyayı import ediyoruz
 import  userRoutes from './routes/userRoutes.js' // users route dosyasını import ediyoruz
+import 'dotenv/config'; // .env dosyasını kullanabilmek için import ediyoruz
 const app = express();
 
 // Diğer yapılandırmalar ve middleware'leri ekleyin
-
+console.log(process.env.DB_HOST);
+console.log(process.env.DB_USER);
 // Veritabanı bağlantısını gerçekleştiriyoruz
 db.authenticate()
   .then(() => {

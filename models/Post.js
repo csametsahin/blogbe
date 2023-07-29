@@ -20,4 +20,4 @@ Post.init(
   }
 );
 
-module.exports = Post;
+export default Post;

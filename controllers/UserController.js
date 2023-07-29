@@ -9,6 +9,7 @@ const getAllUsers = async (req, res) => {
     // Kullanıcılar başarıyla çekildiğinde cevap döndürür
     res.status(200).json(users);
   } catch (error) {
+    console.log(error)
     // Hata durumunda hata mesajını cevap olarak döndürür
     res.status(500).json({ error: 'Kullanıcılar çekilemedi' });
   }

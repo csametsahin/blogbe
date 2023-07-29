@@ -6,18 +6,18 @@ import  db from '../config/database.js';
 class User extends Model {}
 User.init(
   {
-    Id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    Name: { type: DataTypes.STRING, allowNull: false },
-    Surname: { type: DataTypes.STRING, allowNull: false },
-    Email: { type: DataTypes.STRING, allowNull: false },
-    Password: { type: DataTypes.STRING, allowNull: false },
-    CreatedAt: { type: DataTypes.DATE, allowNull: false },
-    UpdatedAt: { type: DataTypes.DATE, allowNull: false },
-    LastLoginDate: { type: DataTypes.DATE, allowNull: false },
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    name: { type: DataTypes.STRING, allowNull: true },
+    surname: { type: DataTypes.STRING, allowNull: true },
+    email: { type: DataTypes.STRING, allowNull: true },
+    password: { type: DataTypes.STRING, allowNull: true },
+    createdAt: { type: DataTypes.DATE, allowNull: true },
+    updatedAt: { type: DataTypes.DATE, allowNull: true },
+    lastLoginDate: { type: DataTypes.DATE, allowNull: true },
   },
   {
     sequelize: db,
-    modelName: 'user',
+    modelName: 'Users',
   }
 );
 
