@@ -1,22 +1,22 @@
 // models/Post.js
 import { Sequelize, Model, DataTypes } from 'sequelize';
-import db from '../config/database';
-import User from './User'; // User modelini import ediyoruz
+import db from '../config/database.js';
+import User from './User.js'; // User modelini import ediyoruz
 
 
 class Post extends Model {}
 Post.init(
   {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    Title: { type: DataTypes.STRING, allowNull: false },
-    Content: { type: DataTypes.TEXT, allowNull: false },
-    UserId: { type: DataTypes.INTEGER, references: { model: User, key: 'id' } }, // User tablosundaki userId'ye referans
-    CreatedAt: { type: DataTypes.DATE, allowNull: false },
-    UpdatedAt: { type: DataTypes.DATE, allowNull: false },
+    title: { type: DataTypes.STRING, allowNull: true },
+    content: { type: DataTypes.TEXT, allowNull: true },
+    userId: { type: DataTypes.INTEGER, references: { model: User, key: 'id' } }, // User tablosundaki userId'ye referans
+    createdAt: { type: DataTypes.DATE, allowNull: true },
+    updatedAt: { type: DataTypes.DATE, allowNull: true },
   },
   {
     sequelize: db,
-    modelName: 'post',
+    modelName: 'Posts',
   }
 );
 

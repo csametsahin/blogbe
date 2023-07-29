@@ -1,6 +1,7 @@
 import express from 'express';
 import  db from './config/database.js'; // Veritabanı bağlantısı için dosyayı import ediyoruz
 import  userRoutes from './routes/userRoutes.js' // users route dosyasını import ediyoruz
+import  postRoutes from './routes/postRoutes.js' // posts route dosyasını import ediyoruz
 import 'dotenv/config'; // .env dosyasını kullanabilmek için import ediyoruz
 const app = express();
 
@@ -18,6 +19,7 @@ db.authenticate()
 
 // Route dosyalarını kullanmak için middleware olarak ekliyoruz
 app.use('/users', userRoutes);
+app.use('/posts', postRoutes);
 
 // Diğer route dosyalarını ve middleware'leri ekleyebilirsiniz
 
