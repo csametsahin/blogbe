@@ -6,10 +6,14 @@ import db from '../config/database';
 class User extends Model {}
 User.init(
   {
-    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    username: { type: DataTypes.STRING, allowNull: false },
-    email: { type: DataTypes.STRING, allowNull: false },
-    password: { type: DataTypes.STRING, allowNull: false },
+    Id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    Name: { type: DataTypes.STRING, allowNull: false },
+    Surname: { type: DataTypes.STRING, allowNull: false },
+    Email: { type: DataTypes.STRING, allowNull: false },
+    Password: { type: DataTypes.STRING, allowNull: false },
+    CreatedAt: { type: DataTypes.DATE, allowNull: false },
+    UpdatedAt: { type: DataTypes.DATE, allowNull: false },
+    LastLoginDate: { type: DataTypes.DATE, allowNull: false },
   },
   {
     sequelize: db,

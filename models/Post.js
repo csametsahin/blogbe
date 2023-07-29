@@ -8,9 +8,11 @@ class Post extends Model {}
 Post.init(
   {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    title: { type: DataTypes.STRING, allowNull: false },
-    content: { type: DataTypes.TEXT, allowNull: false },
-    userId: { type: DataTypes.INTEGER, references: { model: User, key: 'userId' } }, // User tablosundaki userId'ye referans
+    Title: { type: DataTypes.STRING, allowNull: false },
+    Content: { type: DataTypes.TEXT, allowNull: false },
+    UserId: { type: DataTypes.INTEGER, references: { model: User, key: 'id' } }, // User tablosundaki userId'ye referans
+    CreatedAt: { type: DataTypes.DATE, allowNull: false },
+    UpdatedAt: { type: DataTypes.DATE, allowNull: false },
   },
   {
     sequelize: db,
