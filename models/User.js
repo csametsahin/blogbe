@@ -11,6 +11,7 @@ User.init(
     surname: { type: DataTypes.STRING, allowNull: true },
     email: { type: DataTypes.STRING, allowNull: true },
     password: { type: DataTypes.STRING, allowNull: true },
+    role : { type: DataTypes.STRING, allowNull: true },
     createdAt: { type: DataTypes.DATE, allowNull: true },
     updatedAt: { type: DataTypes.DATE, allowNull: true },
     lastLoginDate: { type: DataTypes.DATE, allowNull: true },
