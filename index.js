@@ -24,4 +24,8 @@ app.use('/posts', postRoutes);
 // Diğer route dosyalarını ve middleware'leri ekleyebilirsiniz
 
 // Sunucuyu başlatıyoruz
-app.listen(3000, () => console.log('Sunucu çalışıyor...'));
+app.listen(3000, () => console.log('Sunucu çalışıyor...') );
+process.on("unhandledRejection", err => {
+  console.log(`An error occurred: ${err.message}`)
+  server.close(() => process.exit(1))
+})
