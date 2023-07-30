@@ -16,7 +16,8 @@ db.authenticate()
   .catch((err) => {
     console.error('Veritabanı bağlantı hatası:', err);
   });
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 // Route dosyalarını kullanmak için middleware olarak ekliyoruz
 app.use('/users', userRoutes);
 app.use('/posts', postRoutes);
