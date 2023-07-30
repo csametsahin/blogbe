@@ -6,6 +6,9 @@ const router = express.Router();
 // Tüm kullanıcıları çekmek için GET endpoint'i
 router.get('/', userController.getAllUsers);
 
+// Kullanıcı oluşturmak için POST endpoint'i
+router.post('/register', userController.registerUser);
+
 // Diğer route endpoint'lerini eklemeyi unutmayın
 
 export default router;
