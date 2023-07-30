@@ -1,5 +1,5 @@
 import  User  from '../models/User.js';
-import bcrypt from 'bcrypt';
+import bcryptjs from 'bcryptjs';
 
 // Kullanıcıları çekmek için bir controller fonksiyonu
 const getAllUsers = async (req, res) => {
@@ -19,7 +19,7 @@ const getAllUsers = async (req, res) => {
 const registerUser = async (req, res) => {
   try {
     const { name, surname, email, password, role } = req.body;
-    bcrypt.hash(password, 10, async (err, hash) => {
+    bcryptjs.hash(password, 10, async (err, hash) => {
       if (err) {
         res.status(500).json({ error: 'Şifre hashlenirken hata oluştu' });
       } else {
