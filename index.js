@@ -3,11 +3,10 @@ import  db from './config/database.js'; // Veritabanı bağlantısı için dosya
 import  userRoutes from './routes/userRoutes.js' // users route dosyasını import ediyoruz
 import  postRoutes from './routes/postRoutes.js' // posts route dosyasını import ediyoruz
 import 'dotenv/config'; // .env dosyasını kullanabilmek için import ediyoruz
+import cookieParser from 'cookie-parser';
 const app = express();
 
 // Diğer yapılandırmalar ve middleware'leri ekleyin
-console.log(process.env.DB_HOST);
-console.log(process.env.DB_USER);
 // Veritabanı bağlantısını gerçekleştiriyoruz
 db.authenticate()
   .then(() => {
@@ -16,6 +15,7 @@ db.authenticate()
   .catch((err) => {
     console.error('Veritabanı bağlantı hatası:', err);
   });
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Route dosyalarını kullanmak için middleware olarak ekliyoruz
