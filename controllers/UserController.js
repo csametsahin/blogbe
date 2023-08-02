@@ -1,5 +1,6 @@
 import  User  from '../models/User.js';
 import bcryptjs from 'bcryptjs';
+import { Jwt } from 'jsonwebtoken';
 
 // Kullanıcıları çekmek için bir controller fonksiyonu
 const getAllUsers = async (req, res) => {
@@ -30,7 +31,10 @@ const registerUser = async (req, res) => {
           password: hash,
           role,
         }).then((user) => {
-          res.status(200).json(user);
+          const maxAge = 3*60*60;
+          const token = Jwt.sign({id:user.id , email:email,role:user.role},process.env.JWT_SECRET,{expiresIn:maxAge});
+          res.cookie("jwt",token,{httpOnly:true,maxAge:maxAge*1000})
+          res.status(201).json({message:"Kullanıcı Başarıyla Olşturuldu",user:user.id});
         });
       }
     });
