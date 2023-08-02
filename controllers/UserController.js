@@ -40,7 +40,27 @@ const registerUser = async (req, res) => {
 };
 
 
+const login= async (req, res) => {
+  try{
+    const {email,password} = req.body;
+    await User.findOne({where:{email:email}}).then((user)=>{
+      if(!user){
+        res.status(400).json({error:'Kullanıcı bulunamadı',message:'Giriş başarısız'});
+      }
+      else{
+        bcryptjs.compare(password,user.password,(err,result)=>{
+          result ? res.status(200).json({message:'Giriş Başarılı',user}) : res.status(400).json({error:'Şifre yanlış',message:'Giriş başarısız'});
+        })
+      }
+    })
+  }
+  catch(error)
+  {
+    res.status(400).json({error:error.message,message:'Bir hata oluştu'});
+  }
+};
+
 
 // Diğer controller fonksiyonlarını eklemeyi unutmayın
 
-export { getAllUsers,registerUser };
+export { getAllUsers,registerUser,login };
