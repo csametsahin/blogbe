@@ -4,6 +4,7 @@ import  userRoutes from './routes/userRoutes.js' // users route dosyasını impo
 import  postRoutes from './routes/postRoutes.js' // posts route dosyasını import ediyoruz
 import 'dotenv/config'; // .env dosyasını kullanabilmek için import ediyoruz
 import cookieParser from 'cookie-parser';
+
 const app = express();
 
 // Diğer yapılandırmalar ve middleware'leri ekleyin
