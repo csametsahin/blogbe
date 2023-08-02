@@ -9,10 +9,8 @@ router.get('/', userController.getAllUsers);
 // Kullanıcı oluşturmak için POST endpoint'i
 router.post('/register', userController.registerUser);
 
-router.post('/login', function(req, res) {
-        userController.login
-}
-    );
+// Kullanıcı girişi için POST endpoint'i
+router.post('/login',userController.login);
 
 // Diğer route endpoint'lerini eklemeyi unutmayın
 
